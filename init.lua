@@ -921,7 +921,7 @@ require('lazy').setup({
   require 'custom.plugins.harpoon',
   require 'custom.plugins.hop',
   require 'custom.plugins.octo',
-
+  require 'custom.plugins.dropbar',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
@@ -964,3 +964,6 @@ vim.keymap.set('n', '<F4>', ':lua require("harpoon.ui").nav_file(4)<cr>', { desc
 --
 -- hop
 vim.keymap.set('n', '<leader>hw', '<cmd>HopWord<cr>', { desc = 'Hop to a word' })
+
+-- neotree
+vim.keymap.set('n', '<leader>ee', '<cmd>Neotree<cr>', { desc = 'Open neotree' })
