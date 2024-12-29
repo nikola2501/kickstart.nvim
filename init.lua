@@ -927,6 +927,7 @@ require('lazy').setup({
   require 'custom.plugins.hop',
   require 'custom.plugins.git-conflict',
   require 'custom.plugins.fzf',
+  require 'custom.plugins.go',
   require 'custom.plugins.octo',
   -- require 'custom.plugins.snacks',
   require 'custom.plugins.dropbar',
@@ -974,7 +975,7 @@ vim.keymap.set('n', '<F4>', ':lua require("harpoon.ui").nav_file(4)<cr>', { desc
 vim.keymap.set('n', '<leader>hw', '<cmd>HopWord<cr>', { desc = 'Hop to a word' })
 
 -- neotree
-vim.keymap.set('n', '<leader>ee', '<cmd>Neotree<cr>', { desc = 'Open neotree' })
+vim.keymap.set('n', '<leader>ee', '<cmd>Neotree reveal<cr>', { desc = 'Open neotree' })
 
 -- vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
 -- vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
