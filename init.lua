@@ -948,6 +948,8 @@ require('lazy').setup({
   require 'custom.plugins.dropbar',
   require 'custom.plugins.gh-nvim',
   require 'custom.plugins.octo',
+  require 'custom.plugins.lazy',
+  require 'custom.plugins.gitlinker',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
