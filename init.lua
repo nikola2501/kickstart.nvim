@@ -795,9 +795,9 @@ require('lazy').setup({
 
           -- If you prefer more traditional completion keymaps,
           -- you can uncomment the following lines
-          --['<CR>'] = cmp.mapping.confirm { select = true },
-          -- ['<Tab>'] = cmp.mapping.select_next_item(),
-          --['<S-Tab>'] = cmp.mapping.select_prev_item(),
+          ['<CR>'] = cmp.mapping.confirm { select = true },
+          ['<Tab>'] = cmp.mapping.select_next_item(),
+          ['<S-Tab>'] = cmp.mapping.select_prev_item(),
 
           -- Manually trigger a completion from nvim-cmp.
           --  Generally you don't need this, because nvim-cmp will display
@@ -941,9 +941,9 @@ require('lazy').setup({
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
   require 'custom.plugins.harpoon',
   require 'custom.plugins.hop',
-  -- require 'custom.plugins.git-conflict',
+  require 'custom.plugins.git-conflict',
   require 'custom.plugins.fzf',
-  -- require 'custom.plugins.go',
+  require 'custom.plugins.go',
   -- require 'custom.plugins.snacks',
   require 'custom.plugins.dropbar',
   require 'custom.plugins.gh-nvim',
