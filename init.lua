@@ -625,6 +625,7 @@ require('lazy').setup({
         gopls = {},
         pyright = {},
         rust_analyzer = {},
+        zls = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -950,6 +951,9 @@ require('lazy').setup({
   require 'custom.plugins.octo',
   require 'custom.plugins.lazy',
   require 'custom.plugins.gitlinker',
+  require 'custom.plugins.copilot',
+  require 'custom.plugins.codecompanion',
+  require 'custom.plugins.compile-mode',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
