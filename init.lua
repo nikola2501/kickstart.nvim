@@ -851,6 +851,7 @@ require('lazy').setup({
     end,
   },
 
+  -- Themes
   { -- You can easily change to a different colorscheme.
     -- Change the name of the colorscheme plugin below, and then
     -- change the command in the config to whatever the name of that colorscheme is.
@@ -953,6 +954,8 @@ require('lazy').setup({
     priority = 1000,
     opts = {},
   },
+  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
+  -- END themes
 
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
