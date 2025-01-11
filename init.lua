@@ -89,6 +89,7 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
+vim.o.termguicolors = true
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
@@ -394,6 +395,14 @@ require('lazy').setup({
         --   },
         -- },
         -- pickers = {}
+        defaults = {
+          layout_strategy = 'vertical',
+        },
+        pickers = {
+          colorscheme = {
+            enable_preview = true,
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
@@ -679,6 +688,7 @@ require('lazy').setup({
           end,
         },
       }
+      require('lspconfig').gleam.setup {}
     end,
   },
 
@@ -852,11 +862,96 @@ require('lazy').setup({
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
+      -- vim.cmd.colorscheme 'tokyonight-night'
+      -- vim.cmd.colorscheme 'kanagawa'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
     end,
+  },
+  {
+    'rebelot/kanagawa.nvim',
+    priority = 1000,
+    lazy = false,
+    init = function()
+      vim.cmd 'colorscheme kanagawa'
+    end,
+  },
+  {
+    'scottmckendry/cyberdream.nvim',
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    'olivercederborg/poimandres.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('poimandres').setup {
+        -- leave this setup function empty for default config
+        -- or refer to the configuration section
+        -- for configuration options
+      }
+    end,
+
+    -- optionally set the colorscheme within lazy config
+    -- init = function()
+    --   vim.cmd 'colorscheme poimandres'
+    -- end,
+  },
+  {
+    {
+      'maxmx03/fluoromachine.nvim',
+      lazy = false,
+      priority = 1000,
+      config = function()
+        local fm = require 'fluoromachine'
+
+        fm.setup {
+          glow = true,
+          theme = 'fluoromachine',
+          transparent = true,
+        }
+
+        -- vim.cmd.colorscheme 'fluoromachine'
+      end,
+    },
+  },
+  {
+    'oxfist/night-owl.nvim',
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      -- load the colorscheme here
+      -- require('night-owl').setup()
+      -- vim.cmd.colorscheme 'night-owl'
+    end,
+  },
+  {
+    'sho-87/kanagawa-paper.nvim',
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+  { 'shaunsingh/moonlight.nvim' },
+  { 'embark-theme/vim', as = 'embark' },
+  { 'blazkowolf/gruber-darker.nvim' },
+  { 'ellisonleao/gruvbox.nvim', priority = 1000, config = true, opts = ... },
+  {
+    'philosofonusus/morta.nvim',
+    name = 'morta',
+    priority = 1000,
+    -- opts = {},
+    -- config = function()
+    --   vim.cmd.colorscheme 'morta'
+    -- end,
+  },
+  { 'miikanissi/modus-themes.nvim', priority = 1000 },
+  {
+    'BrunoCiccarino/nekonight',
+    lazy = false,
+    priority = 1000,
+    opts = {},
   },
 
   -- Highlight todo, notes, etc in comments
@@ -990,6 +1085,12 @@ require('lazy').setup({
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 
+-- swap window focus with <C-hjkl>
+vim.keymap.set('n', '<C-h>', '<C-w>h', { silent = true })
+vim.keymap.set('n', '<C-j>', '<C-w>j', { silent = true })
+vim.keymap.set('n', '<C-k>', '<C-w>k', { silent = true })
+vim.keymap.set('n', '<C-l>', '<C-w>l', { silent = true })
+
 --  harpoon
 vim.keymap.set('n', '<leader>ha', ':lua require("harpoon.mark").add_file()<cr>', { desc = 'Add file to the harpoon' })
 vim.keymap.set('n', '<leader>hs', ':lua require("harpoon.ui").toggle_quick_menu()<cr>', { desc = 'Show harpoon menu' })
@@ -999,7 +1100,7 @@ vim.keymap.set('n', '<F3>', ':lua require("harpoon.ui").nav_file(3)<cr>', { desc
 vim.keymap.set('n', '<F4>', ':lua require("harpoon.ui").nav_file(4)<cr>', { desc = 'Jump to file 4' })
 --
 -- hop
-vim.keymap.set('n', '<leader>hw', '<cmd>HopWord<cr>', { desc = 'Hop to a word' })
+vim.keymap.set('n', '<C-f>', '<cmd>HopWord<cr>', { desc = 'Hop to a word' })
 
 -- neotree
 vim.keymap.set('n', '<leader>ee', '<cmd>Neotree reveal<cr>', { desc = 'Open neotree' })
