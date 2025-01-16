@@ -863,7 +863,7 @@ require('lazy').setup({
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      -- vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'tokyonight-moon'
       -- vim.cmd.colorscheme 'kanagawa'
 
       -- You can configure highlights by doing something like:
@@ -874,9 +874,9 @@ require('lazy').setup({
     'rebelot/kanagawa.nvim',
     priority = 1000,
     lazy = false,
-    init = function()
-      vim.cmd 'colorscheme kanagawa'
-    end,
+    -- init = function()
+    --   vim.cmd 'colorscheme kanagawa'
+    -- end,
   },
   {
     'scottmckendry/cyberdream.nvim',
