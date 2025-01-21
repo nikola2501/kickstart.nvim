@@ -1108,6 +1108,14 @@ vim.keymap.set('n', '<C-f>', '<cmd>HopWord<cr>', { desc = 'Hop to a word' })
 -- neotree
 vim.keymap.set('n', '<leader>ee', '<cmd>Neotree reveal<cr>', { desc = 'Open neotree' })
 
+-- copilot
+vim.keymap.set('i', '<C-j>', 'copilot#Accept("\\<CR>")', {
+  expr = true,
+  replace_keycodes = false,
+})
+vim.g.copilot_no_tab_map = true
+
+-- teslescope and fzf
 -- vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
 -- vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
 -- vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
