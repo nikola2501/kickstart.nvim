@@ -1056,6 +1056,8 @@ require('lazy').setup({
   require 'custom.plugins.copilot',
   require 'custom.plugins.codecompanion',
   require 'custom.plugins.compile-mode',
+  require 'custom.plugins.yazi',
+  require 'custom.plugins.toggleterm',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
@@ -1143,3 +1145,17 @@ end, { desc = "Open command line with ':Compile '" })
 -- ctrl+c comment line
 vim.keymap.set('n', '<C-c>', 'gcc', { remap = true, desc = 'Toggle comment (maps to gcc)' })
 vim.keymap.set('v', '<C-c>', 'gc', { remap = true, desc = 'Toggle comment (maps to gc)' })
+
+-- toggleterm
+vim.keymap.set('n', '<leader>tt', function()
+  require('toggleterm.terminal').Terminal
+    :new({
+      direction = 'float',
+      float_opts = {
+        border = 'curved', -- Može biti "single", "double", "shadow", "curved"
+        width = math.floor(vim.o.columns * 0.95), -- 80% širine ekrana
+        height = math.floor(vim.o.lines * 0.95), -- 80% visine ekrana
+      },
+    })
+    :toggle()
+end, { desc = 'Toggle floating terminal' })
