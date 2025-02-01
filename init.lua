@@ -1129,3 +1129,13 @@ vim.keymap.set('n', '<leader>sc', '<cmd>FzfLua grep_cword<cr>', { desc = 'fzf gr
 -- vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
 -- vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
 -- vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+
+-- Compile mode
+-- vim.keymap.set('n', '<leader>cc', '<cmd>Compile<cr>', { desc = 'Compile' })
+vim.keymap.set('n', '<leader>cc', function()
+  vim.api.nvim_feedkeys(':Compile ', 'n', false)
+end, { desc = "Open command line with ':Compile '" })
+
+-- ctrl+c comment line
+vim.keymap.set('n', '<C-c>', 'gcc', { remap = true, desc = 'Toggle comment (maps to gcc)' })
+vim.keymap.set('v', '<C-c>', 'gc', { remap = true, desc = 'Toggle comment (maps to gc)' })
