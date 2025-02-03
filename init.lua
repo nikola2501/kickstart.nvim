@@ -1147,6 +1147,9 @@ end, {})
 vim.keymap.set('n', '[h', function()
   require('gitsigns').nav_hunk 'prev'
 end, {})
+vim.keymap.set('n', '<leader>sb', function()
+  require('gitsigns').blame_line { full = true }
+end, {})
 
 -- Compile mode
 -- vim.keymap.set('n', '<leader>cc', '<cmd>Compile<cr>', { desc = 'Compile' })
