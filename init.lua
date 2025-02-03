@@ -1124,6 +1124,7 @@ vim.g.copilot_no_tab_map = true
 -- teslescope and fzf
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').lsp_document_symbols, {})
 vim.keymap.set('n', '<leader>ss', require('telescope.builtin').lsp_dynamic_workspace_symbols, {})
+vim.keymap.set('n', '<leader>sa', require('telescope.builtin').git_status, {})
 
 -- vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
 -- vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
@@ -1138,6 +1139,14 @@ vim.keymap.set('n', '<leader>sc', '<cmd>FzfLua grep_cword<cr>', { desc = 'fzf gr
 -- vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
 -- vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
 -- vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+
+-- gitsigns
+vim.keymap.set('n', ']h', function()
+  require('gitsigns').nav_hunk 'next'
+end, {})
+vim.keymap.set('n', '[h', function()
+  require('gitsigns').nav_hunk 'prev'
+end, {})
 
 -- Compile mode
 -- vim.keymap.set('n', '<leader>cc', '<cmd>Compile<cr>', { desc = 'Compile' })
