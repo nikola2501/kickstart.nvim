@@ -1112,7 +1112,7 @@ vim.keymap.set('n', '<F4>', ':lua require("harpoon.ui").nav_file(4)<cr>', { desc
 vim.keymap.set('n', '<C-f>', '<cmd>HopWord<cr>', { desc = 'Hop to a word' })
 
 -- neotree
-vim.keymap.set('n', '<leader>ee', '<cmd>Neotree reveal<cr>', { desc = 'Open neotree' })
+vim.keymap.set('n', '<leader>te', '<cmd>Neotree reveal<cr>', { desc = 'Open neotree' })
 
 -- copilot
 vim.keymap.set('i', '<C-j>', 'copilot#Accept("\\<CR>")', {
@@ -1123,7 +1123,7 @@ vim.g.copilot_no_tab_map = true
 
 -- teslescope and fzf
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').lsp_document_symbols, {})
-vim.keymap.set('n', '<leader>ss', require('telescope.builtin').lsp_dynamic_workspace_symbols, {})
+vim.keymap.set('n', '<leader>sx', require('telescope.builtin').lsp_dynamic_workspace_symbols, {})
 vim.keymap.set('n', '<leader>sa', require('telescope.builtin').git_status, {})
 
 -- vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
@@ -1160,6 +1160,9 @@ end, { desc = "Open command line with ':Compile '" })
 -- ctrl+c comment line
 vim.keymap.set('n', '<C-c>', 'gcc', { remap = true, desc = 'Toggle comment (maps to gcc)' })
 vim.keymap.set('v', '<C-c>', 'gc', { remap = true, desc = 'Toggle comment (maps to gc)' })
+
+-- lsp
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 
 -- toggleterm
 vim.keymap.set('n', '<leader>tt', function()
