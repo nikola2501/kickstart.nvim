@@ -1122,9 +1122,9 @@ vim.keymap.set('i', '<C-j>', 'copilot#Accept("\\<CR>")', {
 vim.g.copilot_no_tab_map = true
 
 -- teslescope and fzf
-vim.keymap.set('n', '<leader>sd', require('telescope.builtin').lsp_document_symbols, {})
-vim.keymap.set('n', '<leader>sx', require('telescope.builtin').lsp_dynamic_workspace_symbols, {})
-vim.keymap.set('n', '<leader>sa', require('telescope.builtin').git_status, {})
+vim.keymap.set('n', '<leader>sd', require('telescope.builtin').lsp_document_symbols, { desc = 'Document symbols' })
+vim.keymap.set('n', '<leader>sx', require('telescope.builtin').lsp_dynamic_workspace_symbols, { desc = 'Workspace symbols' })
+vim.keymap.set('n', '<leader>sa', require('telescope.builtin').git_status, { desc = 'Git status' })
 
 -- vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
 -- vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
@@ -1143,13 +1143,13 @@ vim.keymap.set('n', '<leader>sc', '<cmd>FzfLua grep_cword<cr>', { desc = 'fzf gr
 -- gitsigns
 vim.keymap.set('n', ']h', function()
   require('gitsigns').nav_hunk 'next'
-end, {})
+end, { desc = 'Next hunk' })
 vim.keymap.set('n', '[h', function()
   require('gitsigns').nav_hunk 'prev'
-end, {})
+end, { desc = 'Previous hunk' })
 vim.keymap.set('n', '<leader>sb', function()
   require('gitsigns').blame_line { full = true }
-end, {})
+end, { desc = 'Blame line' })
 
 -- Compile mode
 -- vim.keymap.set('n', '<leader>cc', '<cmd>Compile<cr>', { desc = 'Compile' })
@@ -1162,7 +1162,7 @@ vim.keymap.set('n', '<C-c>', 'gcc', { remap = true, desc = 'Toggle comment (maps
 vim.keymap.set('v', '<C-c>', 'gc', { remap = true, desc = 'Toggle comment (maps to gc)' })
 
 -- lsp
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open diagnostics' })
 
 -- toggleterm
 vim.keymap.set('n', '<leader>tt', function()
