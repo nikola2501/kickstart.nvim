@@ -355,6 +355,47 @@ require('lazy').setup({
     },
   },
 
+  {
+    {
+      'nvim-neo-tree/neo-tree.nvim',
+      branch = 'v3.x',
+      dependencies = {
+        'nvim-lua/plenary.nvim',
+        'MunifTanjim/nui.nvim',
+        'nvim-tree/nvim-web-devicons',
+      },
+    },
+    {
+      'antosha417/nvim-lsp-file-operations',
+      dependencies = {
+        'nvim-lua/plenary.nvim',
+        'nvim-neo-tree/neo-tree.nvim', -- makes sure that this loads after Neo-tree.
+      },
+      config = function()
+        require('lsp-file-operations').setup()
+      end,
+    },
+    {
+      's1n7ax/nvim-window-picker',
+      version = '2.*',
+      config = function()
+        require('window-picker').setup {
+          filter_rules = {
+            include_current_win = false,
+            autoselect_one = true,
+            -- filter using buffer options
+            bo = {
+              -- if the file type is one of following, the window will be ignored
+              filetype = { 'neo-tree', 'neo-tree-popup', 'notify' },
+              -- if the buffer type is one of following, the window will be ignored
+              buftype = { 'terminal', 'quickfix' },
+            },
+          },
+        }
+      end,
+    },
+  },
+
   -- Hop
   {
     'phaazon/hop.nvim',
@@ -1002,14 +1043,14 @@ require('lazy').setup({
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      -- vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'tokyonight-night'
     end,
   },
   {
     'savq/melange-nvim',
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'melange'
+      -- vim.cmd.colorscheme 'melange'
     end,
   },
 
